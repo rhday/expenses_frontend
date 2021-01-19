@@ -34,3 +34,7 @@ const renderAccount = (accountHash) => {
     main.appendChild(div)
     accountHash.transactions.forEach(transaction => renderTransaction(transaction))
 }
+
+const renderTransaction = (transaction) => {
+    const ul = document.querySelector(`div[data-id="${transaction.account_id}"]`)
+}
