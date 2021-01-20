@@ -36,5 +36,5 @@ const renderAccount = (accountHash) => {
 }
 
 const renderTransaction = (transaction) => {
-    const ul = document.querySelector(`div[data-id="${transaction.account_id}"]`)
+    const ul = document.querySelector(`div[data-id="${k}"]`)
 }
