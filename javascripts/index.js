@@ -1,18 +1,6 @@
-const BASE_URL = "http://localhost:3000"
-const ACCOUNT_URL = `${BASE_URL}/api/v1/accounts`
-const TRANSACTION_URL = `${BASE_URL}/api/v1/transactions`
+const api = new API()
+
 const main = document.querySelector("main")
-
-document.addEventListener("DOMContentLoaded", () => loadAccounts())
-
-const loadAccounts = () => {
-    const ACCOUNT_URL = `${BASE_URL}/api/v1/accounts`
-    fetch(ACCOUNT_URL)
-    .then(res => res.json())
-    .then(json => {
-        json.forEach(account => renderAccount(account))
-    })
-}
 
 const renderAccount = (accountHash) => {
     const div = document.createElement("div")
@@ -33,8 +21,4 @@ const renderAccount = (accountHash) => {
 
     main.appendChild(div)
     accountHash.transactions.forEach(transaction => renderTransaction(transaction))
-}
-
-const renderTransaction = (transaction) => {
-    const ul = document.querySelector(`div[data-id="${k}"]`)
 }

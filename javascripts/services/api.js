@@ -1,4 +1,5 @@
-class API{
+class API {
+
     //Constructor//
     constructor(port = 3000){
         this.url = `http://localhost:${port}`
@@ -19,25 +20,29 @@ class API{
 
     //Fetch Requests//
     fetchAccounts = () => {
-        return fetch(accountURL).then(parseJSON)
+        return fetch(accountURL).then(this.parseJSON)
     }
     fetchTransactions = () => {
-        return fetch(transactionURL).then(parseJSON)
+        return fetch(transactionURL).then(this.parseJSON)
     }
     fetchAccount = (id) => {
-        return fetch(this.accountURL + `/${id}`).then(parseJSON)
+        return fetch(this.accountURL + `/${id}`).then(this.parseJSON)
     }
     fetchTransaction = (id) => {
-        return fetch(this.transactionURL + `/${id}`).then(parseJSON)
+        return fetch(this.transactionURL + `/${id}`).then(this.parseJSON)
     }
-    postTransaction = (accountId) => {
+    postTransaction = (object) => {
         return fetch(this.transactionURL, {
             method: "POST",
             headers: this.headers,
-            body: JSON.stringify({account_id: accountId})//do I need to add the fields in my schema relating to "Transaction?"
-        }).then(parseJSON)
-    }
+            body: JSON.stringify(object)//do I need to add the fields in my schema relating to "Transaction?"
+        }).then(this.parseJSON)
+    }//postTransaction(object){
+    // object = account_id, amount, kind, date, description
+    //}
     deleteTransaction = (id) => {
-        return fetch(this.transactionURL + `/${id}`).then(parseJSON)
+        return fetch(this.transactionURL + `/${id}`, {
+            method: "DELETE", headers: this.headers
+        }).then(this.parseJSON)
     }
 }
