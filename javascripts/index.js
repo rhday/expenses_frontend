@@ -1,9 +1,14 @@
 const api = new API()
 
 api.fetchAccounts()
-.then(console.log)
+.then(data => {
+    data.forEach(account => {
+        tx = new Account(account)
+        console.log(tx)
+    })
+})
 
-//const main = document.querySelector("main")
+const main = document.querySelector("main")
 
 //const renderAccount = (accountHash) => {
 //    const div = document.createElement("div")
