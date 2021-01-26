@@ -12,11 +12,15 @@ class Account{ //name, balance and transactions
         })
     }
 
-    createTransaction = (api) => {
-        this.kindSelect 
-        api.postTransaction(this.id).then(traxData => {
-        const newTrax = new Transaction(traxData)  
-        })/// do I need to make an "account-card.js" like in your video to be able to then add new transactions? How can I make user input fields appear to then link to the transaction button?
+    createTransaction = () => {
+        const traxKind = this.kindSelect.value
+        const traxAmount = this.amountInput.value
+        const body = {account_id: 1, amount: traxAmount, kind: traxKind}
+        api.postTransaction(body).then(traxData => {
+            this.balanceHtml.innerHTML = traxData.account.balance
+        const newTrax = new Transaction(traxData)
+        newTrax.renderTransaction()  
+        })
     }
 
     renderAccount = (data) => {
@@ -24,7 +28,7 @@ class Account{ //name, balance and transactions
     const p = document.createElement("p")
     const button = document.createElement("button")
     const ul = document.createElement("ul")
-    const balance = document.createElement("p")
+    this.balanceHtml = document.createElement("p")
     this.amountInput = document.createElement("INPUT")
     this.amountInput.type = "number"
     this.kindSelect = document.createElement("SELECT")
@@ -38,23 +42,21 @@ class Account{ //name, balance and transactions
     div.setAttribute("class", "card")
     div.setAttribute("data-id", this.id)
     p.innerHTML = this.name
-    balance.innerHTML = this.balance
+    this.balanceHtml.innerHTML = this.balance
     button.setAttribute("data-account-id", this.id)
     button.innerHTML = "Add Transaction"
     button.addEventListener("click", this.createTransaction)
 
     div.appendChild(p)
+    div.appendChild(this.balanceHtml)
     div.appendChild(this.amountInput)
     div.appendChild(this.kindSelect)
     this.kindSelect.appendChild(withdrawOption)
     this.kindSelect.appendChild(depositOption)
     div.appendChild(button)
     div.appendChild(ul)
-    div.appendChild(balance)
     
-
     main.appendChild(div)
-    //this.transactions.forEach(transaction => renderTransaction(transaction))
 
     }
 }

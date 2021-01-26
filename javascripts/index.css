@@ -45,10 +45,11 @@ body {
   }
   
   button {
+    float: right;
     font-size: .65em;
     color: #fff;
-    background-color:lightgray;
-    border-radius: 10px;
+    background-color: #20d246;
+    border-radius: 20px;
   }
   
   button.delete {
