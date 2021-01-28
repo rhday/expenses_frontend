@@ -6,7 +6,7 @@ class Account{ //name, balance and transactions
         this.renderAccount()
 
         data.transactions.forEach(traxData => {
-            const trax = new Transaction(traxData)
+            const trax = new Transaction(traxData, this)
             trax.account = this
             trax.renderTransaction()
         })
@@ -29,6 +29,7 @@ class Account{ //name, balance and transactions
     const button = document.createElement("button")
     const ul = document.createElement("ul")
     this.balanceHtml = document.createElement("p")
+    this.balanceHtml.setAttribute("data-id", this.id) 
     this.amountInput = document.createElement("INPUT")
     this.amountInput.type = "number"
     this.kindSelect = document.createElement("SELECT")

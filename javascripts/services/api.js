@@ -42,7 +42,8 @@ class API {
     //}
     deleteTransaction = (id) => {
         return fetch(this.transactionURL + `/${id}`, {
-            method: "DELETE", headers: this.headers
+            method: "DELETE", 
+            headers: this.headers
         }).then(this.parseJSON)
     }
 }

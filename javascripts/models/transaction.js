@@ -1,12 +1,13 @@
 class Transaction{ //account_id, amount, kind, date, description ///does this need a transaction ID too?
 
-    constructor(data) {
-        this.data = data.id
+    constructor(data, account) {
+        this.id = data.id
         this.account_id = data.account_id
-        this.amount = data.amount//want to display this on the card
+        this.amount = data.amount
         this.kind = data.kind
         this.date = data.date
         this.description = data.description
+        this.account = account
     }
 
     renderTransaction() {
@@ -22,9 +23,20 @@ class Transaction{ //account_id, amount, kind, date, description ///does this ne
 
         li.appendChild(button)
         ul.appendChild(li)
+        //li.removeChild(li) ask Chett if this is the way to delete a transaction
     }
 
-    delete = () => {
-            
+    delete = (event) => {
+        const api = new API
+        event.target.parentNode.remove()
+        api.deleteTransaction(this.id)
+        const p = document.querySelector(`p[data-id="${this.account_id}"]`)//grabbing specific p tag based on its data id
+        if (this.kind === "deposit"){
+            this.account.balance -= this.amount
+        } 
+        else {
+            this.account.balance += this.amount
+        } 
+        p.innerHTML = this.account.balance
     }
 }
