@@ -12,10 +12,11 @@
   }
   
   header h2 {
+    font-size: 2.5em;
     font-weight: 100;
     letter-spacing: 2px;
     padding: 20px;
-    margin-left: 370px;;
+    margin-left: 320px;;
   }
   
   main {
@@ -63,11 +64,21 @@
     color: black;
     background-color: #DCDCDC;
     border-radius: 20px;
+    transition-duration: 0.4s;
+  }
+
+  button:hover {
+    background-color: #4CAF50;
+    color: white;
   }
   
   button.delete {
     float: right;
     background-color: #DCDCDC;
+  }
+  
+  button.delete:hover {
+    background-color: red;
   }
   
   @media only screen and (min-width: 500px) {
