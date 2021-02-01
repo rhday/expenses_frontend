@@ -1,17 +1,21 @@
-body {
+  body {
+    background-color: white;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
   }
   
   header {
-    background-color: grey;
+    /*background-color: grey;*/
     margin: 0 auto;
     height: 50px;
   }
   
   header h2 {
-    padding: 10px;
-    margin: 0;
+    font-weight: 100;
+    letter-spacing: 2px;
+    padding: 20px;
+    margin-left: 370px;;
   }
   
   main {
@@ -24,37 +28,46 @@ body {
   }
   
   div.card {
+    margin-top: 30px;
+    margin-left: 300px;
     background-color: #eeeeee;
     height: 400px;
     width: 400px;
-    box-shadow: 10px 10px grey;
+    /*box-shadow: 10px 10px grey;*/
     padding: 10px;
     border-radius: 10px;
   }
   
   p {
+    font-weight: 100;
+    letter-spacing: 2px;
     font-size: 1.5em;
     color: black;
-    font-family: Helvetica;
+    font-family: 'Raleway', sans-serif;
   }
   
   li {
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.05em;
     list-style: none;
     padding-right: 20px;
   }
   
   button {
+    font-weight: 100;
+    letter-spacing: 2px;
     float: right;
     font-size: .65em;
-    color: #fff;
-    background-color: #20d246;
+    color: black;
+    background-color: #DCDCDC;
     border-radius: 20px;
   }
   
   button.delete {
     float: right;
-    background-color: #E1332D;
+    background-color: #DCDCDC;
   }
   
   @media only screen and (min-width: 500px) {
@@ -67,5 +80,11 @@ body {
     main {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+  }
+
+  select {
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
   }
   

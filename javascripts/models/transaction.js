@@ -23,7 +23,7 @@ class Transaction{ //account_id, amount, kind, date, description ///does this ne
 
         li.appendChild(button)
         ul.appendChild(li)
-        //li.removeChild(li) ask Chett if this is the way to delete a transaction
+        
     }
 
     delete = (event) => {
