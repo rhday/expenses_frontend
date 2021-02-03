@@ -17,10 +17,12 @@ class Account{ //name, balance and transactions
         const traxAmount = this.amountInput.value
         const body = {account_id: 1, amount: traxAmount, kind: traxKind}
         api.postTransaction(body).then(traxData => {
+            this.balance = traxData.account.balance //assigning the account balance associated to the traxData to the variable "this.balance"
             this.balanceHtml.innerHTML = traxData.account.balance
-        const newTrax = new Transaction(traxData)
+        const newTrax = new Transaction(traxData, this)
         newTrax.renderTransaction()  
-        })
+        }).catch(() => alert("Insufficient funds!"))
+        //debugger
     }
 
     renderAccount = (data) => {
