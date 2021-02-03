@@ -1,12 +1,12 @@
-##Expenses Tracker Frontend##
+# Expenses Tracker Frontend
 
 JavaScript frontend for keeping track of one's personal expenses.
 
-##Installation##
+## Installation
 ```
     See backend for starting the API/Server.
 ```
-##Usage##
+## Usage
 ```
     1. Copy path for 'index.html.' 
     2. Open 'index.html' in new browser window.
@@ -15,14 +15,14 @@ JavaScript frontend for keeping track of one's personal expenses.
 
 ```
 
-##Contributing##
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-##Backend##
+## Backend
 
 https://github.com/rhday/expenses-backend
 
-##License##
+## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
