@@ -12,7 +12,6 @@ JavaScript frontend for keeping track of one's personal expenses.
     2. Open 'index.html' in new browser window.
     3. Deposit and withdraw funds from the Expenses Tracker by using the 'Add Transaction' input and button.
     4. Delete any transaction by clicking on the 'Delete' button.
-
 ```
 
 ## Contributing
