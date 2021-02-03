@@ -4,12 +4,15 @@ JavaScript frontend for keeping track of one's personal expenses.
 
 ##Installation##
 ```
-    1. See backend for starting the API/Server.
-    2. Copy path for 'index.html' 
-    3. Open 'index.html' in new browser window
+    See backend for starting the API/Server.
 ```
 ##Usage##
 ```
+    1. Copy path for 'index.html.' 
+    2. Open 'index.html' in new browser window.
+    3. Deposit and withdraw funds from the Expenses Tracker by using the 'Add Transaction' input and button.
+    4. Delete any transaction by clicking on the 'Delete' button.
+
 ```
 
 ##Contributing##
