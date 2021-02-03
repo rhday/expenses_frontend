@@ -27,7 +27,6 @@ class Transaction{ //account_id, amount, kind, date, description ///does this ne
     }
 
     delete = (event) => {
-        //debugger
         const api = new API
         event.target.parentNode.remove()
         api.deleteTransaction(this.id)

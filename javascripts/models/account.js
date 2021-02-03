@@ -22,7 +22,6 @@ class Account{ //name, balance and transactions
         const newTrax = new Transaction(traxData, this)
         newTrax.renderTransaction()  
         }).catch(() => alert("Insufficient funds!"))
-        //debugger
     }
 
     renderAccount = (data) => {
@@ -34,7 +33,7 @@ class Account{ //name, balance and transactions
     this.balanceHtml.setAttribute("data-id", this.id) 
     this.amountInput = document.createElement("INPUT")
     this.amountInput.type = "number"
-    this.amountInput.min = "0" //This will stop the user from inputting a negative sum
+    this.amountInput.min = "0" //This will stop the user from inputting a negative value/float
     this.kindSelect = document.createElement("SELECT")
     const withdrawOption = document.createElement("OPTION")
     withdrawOption.innerHTML = "Withdraw"
