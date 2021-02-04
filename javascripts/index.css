@@ -16,24 +16,23 @@
     font-weight: 100;
     letter-spacing: 2px;
     padding: 20px;
-    margin-left: 320px;;
+    text-align: center;
   }
   
   main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 20px;
     padding-top: 10px;
     padding-bottom: 30px;
   }
   
   div.card {
+    /*display: inline-block;*/
+    position: relative;
+    left: 50vw;
+    margin-left: -300px;
     margin-top: 30px;
-    margin-left: 300px;
     background-color: #eeeeee;
     height: 400px;
-    width: 400px;
+    width: 600px;
     /*box-shadow: 10px 10px grey;*/
     padding: 10px;
     border-radius: 10px;
@@ -83,17 +82,17 @@
     background-color: red;
   }
   
-  @media only screen and (min-width: 500px) {
+  /*@media only screen and (min-width: 500px) {
     main {
       grid-template-columns: 1fr 1fr;
     }
-  }
+  }*/
   
-  @media only screen and (min-width: 850px) {
+  /*@media only screen and (min-width: 850px) {
     main {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-  }
+  }*/
 
   /*select {
     font-weight: 100;

@@ -15,7 +15,8 @@ class Account{ //name, balance and transactions
     createTransaction = () => {
         const traxKind = this.kindSelect.value
         const traxAmount = this.amountInput.value
-        const body = {account_id: 1, amount: traxAmount, kind: traxKind}
+        const traxDescription = this.descriptionInput.value
+        const body = {account_id: 1, amount: traxAmount, kind: traxKind, description: traxDescription}
         api.postTransaction(body).then(traxData => {
             this.balance = traxData.account.balance //assigning the account balance associated to the traxData to the variable "this.balance"
             this.balanceHtml.innerHTML = traxData.account.balance
@@ -34,6 +35,8 @@ class Account{ //name, balance and transactions
     this.amountInput = document.createElement("INPUT")
     this.amountInput.type = "number"
     this.amountInput.min = "0" //This will stop the user from inputting a negative value/float
+    this.descriptionInput = document.createElement("INPUT")
+    this.descriptionInput.type = "text"
     this.kindSelect = document.createElement("SELECT")
     const withdrawOption = document.createElement("OPTION")
     withdrawOption.innerHTML = "Withdraw"
@@ -53,6 +56,7 @@ class Account{ //name, balance and transactions
     div.appendChild(p)
     div.appendChild(this.balanceHtml)
     div.appendChild(this.amountInput)
+    div.appendChild(this.descriptionInput)
     div.appendChild(this.kindSelect)
     this.kindSelect.appendChild(withdrawOption)
     this.kindSelect.appendChild(depositOption)
