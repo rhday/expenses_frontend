@@ -15,7 +15,7 @@ class API {
         return this.url + '/api/v1/accounts'
     }
     get transactionURL() {
-        return this.url + '/api/v1/accounts/1/transactions'//how do I make this dynamic?
+        return this.url + '/api/v1/accounts/1/transactions'
     }
 
     //Fetch Requests//

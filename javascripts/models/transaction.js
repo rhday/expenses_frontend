@@ -10,19 +10,23 @@ class Transaction{ //account_id, amount, kind, date, description ///does this ne
         this.account = account
     }
 
-    renderTransaction() {
-        const ul = document.querySelector(`div[data-id="${this.account_id}"]`)
-        const li = document.createElement("li")
-        const button = document.createElement("button")
+    renderTransaction(transactionKind) {
+        if (this.kind === transactionKind || !transactionKind){
+            const ul = document.querySelector(`div[data-id="${this.account_id}"] ul`)
+            const li = document.createElement("li")
+            const button = document.createElement("button")
+        
 
-        li.innerHTML = `${this.amount} (${this.kind}) ${this.description}`
-        button.setAttribute("class", "delete")
-        button.setAttribute("data-this-id", this.id)
-        button.innerHTML = "Delete!"
-        button.addEventListener("click", this.delete)
+            li.innerHTML = `${this.amount} (${this.kind}) ${this.description}`
+            button.setAttribute("class", "delete")
+            button.setAttribute("data-this-id", this.id)
+            button.innerHTML = "Delete!"
+            button.addEventListener("click", this.delete)
 
-        li.appendChild(button)
-        ul.appendChild(li)
+            li.appendChild(button)
+            ul.appendChild(li)
+        }
+        
         
     }
 

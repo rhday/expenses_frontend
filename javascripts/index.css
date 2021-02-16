@@ -82,23 +82,6 @@
     background-color: red;
   }
   
-  /*@media only screen and (min-width: 500px) {
-    main {
-      grid-template-columns: 1fr 1fr;
-    }
-  }*/
-  
-  /*@media only screen and (min-width: 850px) {
-    main {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-  }*/
-
-  /*select {
-    font-weight: 100;
-    letter-spacing: 2px;
-    font-family: 'Raleway', sans-serif;
-  }*/
   select {
     display: inline-block;
     font-size: 10px;
