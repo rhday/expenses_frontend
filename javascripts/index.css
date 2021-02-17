@@ -4,6 +4,20 @@
     margin: 0;
     padding: 0;
   }
+
+  body.dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+  body.dark-mode div.card {
+    background-color: darkgrey;
+    color: white;
+  }
+
+  body.dark-mode p {
+    color: white;
+  }
   
   header {
     /*background-color: grey;*/
@@ -80,6 +94,16 @@
   button.delete:hover {
     cursor: pointer;
     background-color: red;
+  }
+
+  button.dark-mode-button:hover {
+    cursor: pointer;
+    background-color: darkblue;
+  }
+
+  button.see-withdrawals-button:hover {
+    cursor: pointer;
+    background-color: darkorange;
   }
   
   select {

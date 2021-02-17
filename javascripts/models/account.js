@@ -36,14 +36,19 @@ class Account{ //name, balance and transactions
         })
     }
 
+    darkMode = () => {
+        const element = document.body;
+        element.classList.toggle("dark-mode")
+    }
+
     renderAccount = (data) => {
     const div = document.createElement("div")
     const p = document.createElement("p")
     const button = document.createElement("button")
     const ul = document.createElement("ul")
     const buttonTwo = document.createElement("button")
-    const buttonThree = document.createElement("button")
-    const buttonFour = document.createElement("button")
+    const darkLightButton = document.createElement("button")
+    
     this.balanceHtml = document.createElement("p")
     this.balanceHtml.setAttribute("data-id", this.id) 
     this.amountInput = document.createElement("INPUT")
@@ -69,11 +74,17 @@ class Account{ //name, balance and transactions
     button.innerHTML = "Add Transaction"
     button.addEventListener("click", this.createTransaction)
 
+    buttonTwo.setAttribute("class", "see-withdrawals-button")
     buttonTwo.setAttribute("data-account", this)
     buttonTwo.innerHTML = "See Withdrawals"
     buttonTwo.addEventListener("click", () => this.renderWithdrawals(data))
+
+    darkLightButton.setAttribute("class", "dark-mode-button")
+    darkLightButton.innerHTML = "Dark/Light Mode"
+    darkLightButton.addEventListener("click", () => this.darkMode())
     
     div.appendChild(buttonTwo)
+    div.appendChild(darkLightButton)
     div.appendChild(p)
     div.appendChild(this.balanceHtml)
     div.appendChild(this.amountInput)
