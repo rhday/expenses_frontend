@@ -21,11 +21,21 @@ class Account{ //name, balance and transactions
         api.postTransaction(body).then(traxData => {
             this.balance = traxData.account.balance //assigning the account balance associated to the traxData to the variable "this.balance"
             this.balanceHtml.innerHTML = traxData.account.balance
-        const newTrax = new Transaction(traxData, this)
-        newTrax.renderTransaction()  
+            const newTrax = new Transaction(traxData, this)
+            newTrax.renderTransaction()  
         }).catch(() => alert("Insufficient funds!"))
     }
     
+    renderWithdrawals = (data) => {
+        const ul = document.querySelector(`div[data-id="${this.id}"] ul`)
+        ul.innerHTML = ""
+        data.transactions.filter(transaction => transaction.kind === "withdraw" ).forEach(traxData => {
+            const trax = new Transaction(traxData, this)
+            trax.account = this
+            trax.renderTransaction("withdraw")
+        })
+    }
+
     renderWithdrawals = (data) => {
         const ul = document.querySelector(`div[data-id="${this.id}"] ul`)
         ul.innerHTML = ""
@@ -41,6 +51,18 @@ class Account{ //name, balance and transactions
         element.classList.toggle("dark-mode")
     }
 
+    sortHighLow = (data) => {
+        const ul = document.querySelector(`div[data-id="${this.id}"] ul`)
+        ul.innerHTML = ""
+        debugger
+        data.transactions.sort((a, b) => b.amount - a.amount ).forEach(traxData => {
+        
+            const trax = new Transaction(traxData, this)
+            trax.account = this
+            trax.renderTransaction()
+        })
+    }
+
     renderAccount = (data) => {
     const div = document.createElement("div")
     const p = document.createElement("p")
@@ -48,6 +70,7 @@ class Account{ //name, balance and transactions
     const ul = document.createElement("ul")
     const buttonTwo = document.createElement("button")
     const darkLightButton = document.createElement("button")
+    const amountButton = document.createElement("button")
     
     this.balanceHtml = document.createElement("p")
     this.balanceHtml.setAttribute("data-id", this.id) 
@@ -82,9 +105,13 @@ class Account{ //name, balance and transactions
     darkLightButton.setAttribute("class", "dark-mode-button")
     darkLightButton.innerHTML = "Dark/Light Mode"
     darkLightButton.addEventListener("click", () => this.darkMode())
+
+    amountButton.innerHTML = "Sort High/Low"
+    amountButton.addEventListener("click", () => this.sortHighLow(data))
     
     div.appendChild(buttonTwo)
     div.appendChild(darkLightButton)
+    div.appendChild(amountButton)
     div.appendChild(p)
     div.appendChild(this.balanceHtml)
     div.appendChild(this.amountInput)

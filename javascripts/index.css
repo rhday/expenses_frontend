@@ -103,7 +103,7 @@
 
   button.see-withdrawals-button:hover {
     cursor: pointer;
-    background-color: darkorange;
+    background-color: purple;
   }
   
   select {
